@@ -1,4 +1,4 @@
-import logo from "../assets/img/deliveroo-logo.png";
+import logo from "../assets/img/deliveroo-logo.svg";
 
 const Header = () => {
   return (

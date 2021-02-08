@@ -3,10 +3,13 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Header from "./Header";
 import Restaurant from "./Restaurant";
+import SideBar from "./SideBar";
+import Categories from "./Categories";
 
 function App() {
   // plus bas je stocke dans mon state "data" récupérer via le back !
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   // je récupère le data du back !
   useEffect(() => {
@@ -14,6 +17,7 @@ function App() {
       try {
         const response = await axios.get("http://localhost:3100/");
         setData(response.data);
+        setIsLoading(false);
       } catch (error) {
         console.log(error.message);
       }
@@ -26,12 +30,33 @@ function App() {
     <div>
       <div className="topBar">
         <Header />
-        {data.map((elem, index) => {
-          return <div>{elem}</div>;
-          // <Restaurant key={index} data={elem.restaurant} />;
-        })}
+        {isLoading ? (
+          <span>En cours de chargement... </span>
+        ) : (
+          <Restaurant data={data} />
+        )}
       </div>
-      <div className="container"></div>
+      {/* ----------- MENUS ------------*/}
+      <div className="container">
+        <div className="categories">
+          {isLoading ? (
+            <span>En cours de chargement... </span>
+          ) : (
+            data.categories.map((elem, index) => {
+              return (
+                <Categories
+                  data={elem}
+                  key={index}
+                  isLoading={isLoading}
+                  setIsLoading={setIsLoading}
+                />
+              );
+            })
+          )}
+        </div>
+
+        <SideBar />
+      </div>
     </div>
   );
 }

@@ -10,22 +10,56 @@
   font-family: "Lato", sans-serif;
   font-weight: 400;
   box-sizing: border-box;
+  color: #2e3333;
 }
 
 .topBar {
   margin: 0 auto;
   width: 96vw;
   max-width: 1200px;
+  margin-bottom: 50px;
 }
 
 .header {
   border-bottom: 1px solid #e9ebeb;
   margin: 10px 0 30px 0;
   img {
-    width: 150px;
+    width: 200px;
     height: 45px;
     object-fit: cover;
     margin-bottom: 10px;
+  }
+}
+
+.restaurant {
+  @include flexCenter();
+
+  .leftPart {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    height: 180px;
+    justify-content: space-between;
+  }
+
+  h2 {
+    font-size: 35px;
+    font-weight: 900;
+  }
+
+  p {
+    color: grey;
+    font-size: 19px;
+
+    line-height: 28.8px;
+  }
+
+  img {
+    width: 350px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+    margin-left: 50px;
   }
 }
 
@@ -33,4 +67,21 @@
   font-size: 14px;
   width: 1200px;
   margin: 0 auto;
+  @include flexCenter;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 96vw;
+  background-color: #f3f5f5;
+
+  h3 {
+    font-weight: 900;
+    font-size: 25px;
+  }
+}
+
+.sidebar {
+  width: 350px;
+  background-color: #00cdbd;
+  position: sticky;
+  top: 0;
 }

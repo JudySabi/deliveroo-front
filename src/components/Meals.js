@@ -3,18 +3,22 @@ const Meals = ({ data }) => {
   const description = data.description;
   const picture = data.picture;
 
+  // substring --> affiche que les 60 premiers caractères
+
   return (
     <div className="meal">
       <div className="leftPart">
         <h4>{data.title}</h4>
         <p>{description.substring(0, 60)}</p>
         <span>{data.price} € </span>
+        {/* si popular est true alors il m'affiche le span si dessous */}
         {popular && (
           <span class="popular">
             <i class="fas fa-star"></i> Populaire
           </span>
         )}
       </div>
+      {/* si l'img n'est pas existante alors il me fait un margin right */}
       <div className="rightPart" style={{ marginRight: !picture && "130px" }}>
         {data.picture && <img src={picture} alt="" />}
       </div>

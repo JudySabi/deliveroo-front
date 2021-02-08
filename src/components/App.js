@@ -1,6 +1,7 @@
 import "../assets/css/style.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
+// COMPONENTS :
 import Header from "./Header";
 import Restaurant from "./Restaurant";
 import SideBar from "./SideBar";
@@ -27,15 +28,17 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <>
       <div className="topBar">
         <Header />
+
         {isLoading ? (
           <span>En cours de chargement... </span>
         ) : (
           <Restaurant data={data} />
         )}
       </div>
+
       {/* ----------- MENUS ------------*/}
       <div className="container">
         <div className="categories">
@@ -43,6 +46,7 @@ function App() {
             <span>En cours de chargement... </span>
           ) : (
             data.categories.map((elem, index) => {
+              //categorie est un tableau dans le data.json
               return (
                 <Categories
                   data={elem}
@@ -54,9 +58,10 @@ function App() {
             })
           )}
         </div>
+
         <SideBar />
       </div>
-    </div>
+    </>
   );
 }
 

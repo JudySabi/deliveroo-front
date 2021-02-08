@@ -1,13 +1,14 @@
 import Meals from "./Meals";
 
 const Categories = ({ data, isLoading }) => {
-  const meals = data.meals;
-  console.log(meals); // je récupère bien mon tableau dans mon console.log
+  const meals = data.meals; // tableau meals que je map plus bas
+
   return (
     <>
       {meals && (
         <div className="categorie">
           <h3>{data.name}</h3>
+
           <div className="meals">
             {isLoading ? (
               <span>En cours de chargement... </span>

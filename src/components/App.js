@@ -11,6 +11,10 @@ function App() {
   // plus bas je stocke dans mon state "data" récupérer via le back !
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [idMeal, setIdMeal] = useState([]);
+  const newMeal = [...idMeal];
+
+  console.log(newMeal);
 
   // je récupère le data du back !
   useEffect(() => {
@@ -47,12 +51,21 @@ function App() {
           ) : (
             data.categories.map((elem, index) => {
               //categorie est un tableau dans le data.json
-              return <Categories data={elem} key={index} />;
+              return (
+                <Categories
+                  data={elem}
+                  key={index}
+                  idMeam={idMeal}
+                  setIdMeal={setIdMeal}
+                  newMeal={newMeal}
+                  setIdMeal={setIdMeal}
+                />
+              );
             })
           )}
         </div>
 
-        <SideBar />
+        <SideBar idMeal={idMeal} />
       </div>
     </>
   );

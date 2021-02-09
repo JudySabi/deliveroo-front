@@ -1,7 +1,6 @@
 import Meals from "./Meals";
-import SideBar from "./SideBar";
 
-const Categories = ({ data }) => {
+const Categories = ({ data, idMeal, setIdMeal, newMeal }) => {
   const meals = data.meals; // tableau meals que je map plus bas
 
   return (
@@ -12,7 +11,15 @@ const Categories = ({ data }) => {
           <div className="meals">
             {meals.map((elem) => {
               // je souhaite mapper le tableau meals de mon data
-              return <Meals key={elem.id} data={elem} />;
+              return (
+                <Meals
+                  key={elem.id}
+                  data={elem}
+                  idMeal={idMeal}
+                  newMeal={newMeal}
+                  setIdMeal={setIdMeal}
+                />
+              );
             })}
           </div>
         </div>

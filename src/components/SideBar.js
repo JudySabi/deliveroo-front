@@ -1,12 +1,14 @@
-import Categories from "./Categories";
-
-const SideBar = () => {
+const SideBar = ({ idMeal }) => {
   // console.log();
 
   return (
     <div className="sidebar">
       <button>Valider mon panier</button>
-      <p className="emptyBasket">Votre panier est vide</p>
+      <p>{idMeal}</p>
+      {/* {idMeal.map((elem, index) => {
+        <div key={index}>{elem.id}</div>;
+      })} */}
+      {/* <p className="emptyBasket">Votre panier est vide</p> */}
     </div>
   );
 };

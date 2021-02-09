@@ -1,6 +1,6 @@
 import Meals from "./Meals";
 
-const Categories = ({ data, idMeal, setIdMeal, newMeal }) => {
+const Categories = ({ data, setCart, cart }) => {
   const meals = data.meals; // tableau meals que je map plus bas
 
   return (
@@ -15,9 +15,8 @@ const Categories = ({ data, idMeal, setIdMeal, newMeal }) => {
                 <Meals
                   key={elem.id}
                   data={elem}
-                  idMeal={idMeal}
-                  newMeal={newMeal}
-                  setIdMeal={setIdMeal}
+                  cart={cart}
+                  setCart={setCart}
                 />
               );
             })}

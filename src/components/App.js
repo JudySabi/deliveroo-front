@@ -10,10 +10,7 @@ import Categories from "./Categories";
 function App() {
   const [data, setData] = useState({}); // plus bas je stocke dans mon state "data" récupérer via le back !
   const [isLoading, setIsLoading] = useState(true);
-  const [idMeal, setIdMeal] = useState([]);
-  const newMeal = [...idMeal];
-
-  console.log(newMeal);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,16 +54,14 @@ function App() {
                   data={elem}
                   key={index}
                   // states à récuperer
-                  idMeal={idMeal}
-                  setIdMeal={setIdMeal}
-                  newMeal={newMeal}
-                  setIdMeal={setIdMeal}
+                  cart={cart}
+                  setCart={setCart}
                 />
               );
             })
           )}
         </div>
-        <SideBar idMeal={idMeal} /> {/* Panier */}
+        <SideBar cart={cart} /> {/* Panier */}
       </div>
     </>
   );

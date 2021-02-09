@@ -153,6 +153,7 @@
   margin: 30px 0;
   padding: 10px;
   box-shadow: 0px 12px 16px 0px rgba(107, 107, 107, 0.4);
+  font-size: 16px;
 
   button {
     width: 100%;
@@ -168,5 +169,17 @@
     display: flex;
     justify-content: center;
     margin-top: 60px;
+  }
+
+  .cart {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+    & > div {
+      display: flex;
+    }
+    & i {
+      cursor: pointer;
+    }
   }
 }

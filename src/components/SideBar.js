@@ -1,4 +1,8 @@
+import Categories from "./Categories";
+
 const SideBar = () => {
+  // console.log();
+
   return (
     <div className="sidebar">
       <button>Valider mon panier</button>

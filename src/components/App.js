@@ -47,14 +47,7 @@ function App() {
           ) : (
             data.categories.map((elem, index) => {
               //categorie est un tableau dans le data.json
-              return (
-                <Categories
-                  data={elem}
-                  key={index}
-                  isLoading={isLoading}
-                  setIsLoading={setIsLoading}
-                />
-              );
+              return <Categories data={elem} key={index} />;
             })
           )}
         </div>

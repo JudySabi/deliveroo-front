@@ -8,20 +8,18 @@ import SideBar from "./SideBar";
 import Categories from "./Categories";
 
 function App() {
-  // plus bas je stocke dans mon state "data" récupérer via le back !
-  const [data, setData] = useState({});
+  const [data, setData] = useState({}); // plus bas je stocke dans mon state "data" récupérer via le back !
   const [isLoading, setIsLoading] = useState(true);
   const [idMeal, setIdMeal] = useState([]);
   const newMeal = [...idMeal];
 
   console.log(newMeal);
 
-  // je récupère le data du back !
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:3100/");
-        setData(response.data);
+        setData(response.data); // je récupère le data du back !
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -33,6 +31,7 @@ function App() {
 
   return (
     <>
+      {/* ----------- TOPBAR ------------*/}
       <div className="topBar">
         <Header />
 
@@ -43,9 +42,11 @@ function App() {
         )}
       </div>
 
-      {/* ----------- MENUS ------------*/}
+      {/* ----------- MENUS & PANIER ------------*/}
       <div className="container">
         <div className="categories">
+          {" "}
+          {/* Menu */}
           {isLoading ? (
             <span>En cours de chargement... </span>
           ) : (
@@ -55,7 +56,8 @@ function App() {
                 <Categories
                   data={elem}
                   key={index}
-                  idMeam={idMeal}
+                  // states à récuperer
+                  idMeal={idMeal}
                   setIdMeal={setIdMeal}
                   newMeal={newMeal}
                   setIdMeal={setIdMeal}
@@ -64,8 +66,7 @@ function App() {
             })
           )}
         </div>
-
-        <SideBar idMeal={idMeal} />
+        <SideBar idMeal={idMeal} /> {/* Panier */}
       </div>
     </>
   );

@@ -3,15 +3,13 @@ const Meals = ({ data, key, newMeal, setIdMeal }) => {
   const description = data.description;
   const picture = data.picture;
 
-  // substring --> affiche que les 60 premiers caractères
-
   return (
     <div
       className="meal"
       key={key}
       // je souhaite stocké mon id du meal afin de le récupérer dans App.js puis le stocker dans mon panier (sidebar)
       onClick={() => {
-        const mealBasket = { id: data.id };
+        // const mealBasket = { id: data.id };
         newMeal.push(mealBasket);
         setIdMeal(newMeal);
         console.log(newMeal);
@@ -19,7 +17,8 @@ const Meals = ({ data, key, newMeal, setIdMeal }) => {
     >
       <div className="leftPart">
         <h4>{data.title}</h4>
-        <p>{description.substring(0, 60)}</p>
+        <p>{description.substring(0, 60)}</p>{" "}
+        {/* substring --> affiche que les 60 premiers caractères */}
         <span>{data.price} € </span>
         {/* si popular est true alors il m'affiche le span si dessous */}
         {popular && (

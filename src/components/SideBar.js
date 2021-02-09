@@ -1,5 +1,5 @@
 const SideBar = ({ idMeal }) => {
-  // console.log();
+  // récupère ici les meals clickés pour les afficher ci dessous
 
   return (
     <div className="sidebar">

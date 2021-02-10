@@ -16,7 +16,7 @@ function App() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://git.heroku.com/mahe-deliveroo-back.git"
+          "https://mahe-deliveroo-back.herokuapp.com/"
         );
         setData(response.data); // je récupère le data du back !
         setIsLoading(false);

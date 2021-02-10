@@ -61,7 +61,7 @@ function App() {
             })
           )}
         </div>
-        <SideBar cart={cart} /> {/* Panier */}
+        <SideBar cart={cart} setCart={setCart} /> {/* Panier */}
       </div>
     </>
   );

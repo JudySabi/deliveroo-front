@@ -15,7 +15,9 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://mahe-deliveroo.netlify.app/");
+        const response = await axios.get(
+          "https://git.heroku.com/mahe-deliveroo-back.git"
+        );
         setData(response.data); // je récupère le data du back !
         setIsLoading(false);
       } catch (error) {
